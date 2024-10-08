@@ -6,7 +6,7 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 23:48:26 by aeid              #+#    #+#             */
-/*   Updated: 2024/10/07 22:38:25 by aeid             ###   ########.fr       */
+/*   Updated: 2024/10/08 19:40:48 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,23 @@
 #include <unistd.h>
 
 #define MAX_CONTACTS 8
+#define MAX_WIDTH 10
 
 class PhoneBook {
 	
 	public:
 	PhoneBook(void);
 	~PhoneBook(void);
-	void checkindex(void);
+	void checkindex(PhoneBook &phonebook);
 	void addcontact(std::string& input, Fields field);
-	void increase_index(void);
+	void printuser(void);
+	void search_contact(PhoneBook &phonebook);
+	int get_id();
 
 	private:
+	void _print_contact(Contact contacts[], int id);
 	Contact _contacts[MAX_CONTACTS];
 	int _index;
-	
 };
 
 void add_function(PhoneBook &phonebook);

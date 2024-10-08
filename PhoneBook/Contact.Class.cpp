@@ -6,7 +6,7 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 23:59:42 by aeid              #+#    #+#             */
-/*   Updated: 2024/10/07 22:25:37 by aeid             ###   ########.fr       */
+/*   Updated: 2024/10/08 17:26:42 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,31 @@ void Contact::setfield(std::string& input, Fields field)
 		_DarkestSecret = input;
 	else if (field == UNDERWEAR)
 		_Underwear = input;
+}
+
+void Contact::ClearObject(void)
+{
+	_FirstName.clear();
+	_LastName.clear();
+	_NickName.clear();
+	_PhoneNum.clear();
+	_DarkestSecret.clear();
+	_Underwear.clear();
+}
+
+std::string Contact::getfield(Fields field)
+{
+	if (field == FIRSTNAME)
+		return this->_FirstName;
+	else if (field == LASTNAME)
+		return this->_LastName;
+	else if (field == NICKNAME)
+		return this->_NickName;
+	else if (field == PHONENUM)
+		return this->_PhoneNum;
+	else if (field == DARKESTSECRET)
+		return this->_DarkestSecret;
+	else
+		return this->_Underwear;
 }
 

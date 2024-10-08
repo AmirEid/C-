@@ -6,7 +6,7 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 23:52:12 by aeid              #+#    #+#             */
-/*   Updated: 2024/10/07 22:25:24 by aeid             ###   ########.fr       */
+/*   Updated: 2024/10/08 17:14:44 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ public:
 	Contact(void);
 	~Contact(void);
 	void setfield(std::string& input, Fields field);
+	void ClearObject(void);
+	std::string getfield(Fields field);
 private:
 	std::string _FirstName;
 	std::string _LastName;

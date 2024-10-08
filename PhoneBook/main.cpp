@@ -6,7 +6,7 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 22:32:16 by aeid              #+#    #+#             */
-/*   Updated: 2024/10/07 21:43:12 by aeid             ###   ########.fr       */
+/*   Updated: 2024/10/08 15:24:37 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int main (void) {
 		else if (!input.compare("ADD"))
 			add_function(phonebook);
 		else if (!input.compare("SEARCH"))
-			std::cout << "\033[1;36mSearching for a contact...\033[0m" << std::endl;
+			phonebook.search_contact(phonebook);
 		else
 			std::cout << "\033[1;31mInvalid command. Only try ADD, SEARCH, EXIT.\033[0m" << std::endl;		
 	}

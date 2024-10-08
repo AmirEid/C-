@@ -6,12 +6,12 @@
 #    By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/29 22:48:23 by aeid              #+#    #+#              #
-#    Updated: 2024/10/07 20:50:12 by aeid             ###   ########.fr        #
+#    Updated: 2024/10/08 15:47:06 by aeid             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = PhoneBook
-SRC = PhoneBook.Class.cpp Contact.Class.cpp main.cpp Add.Function.cpp
+SRC = PhoneBook.Class.cpp Contact.Class.cpp main.cpp Add.Function.cpp PhoneBook.Class.Search.cpp
 OBJ = $(SRC:.cpp=.o)
 
 CPP = g++

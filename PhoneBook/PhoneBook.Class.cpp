@@ -6,13 +6,13 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 00:14:45 by aeid              #+#    #+#             */
-/*   Updated: 2024/10/07 22:39:00 by aeid             ###   ########.fr       */
+/*   Updated: 2024/10/08 20:42:30 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.Class.hpp"
 
-PhoneBook::PhoneBook(void): _index(0) {
+PhoneBook::PhoneBook(void): _index(-1) {
 	std::cout << "Why would a phonebook apply for a job?" << std::endl;
 	return;
 }
@@ -40,13 +40,12 @@ void PhoneBook::addcontact(std::string& input, Fields field)
 	}
 }
 
-void PhoneBook::increase_index(void)
+void PhoneBook::printuser(void)
 {
 	std::cout << "\033[1;36mNew Contact Added!\nContact ID: \033[0m" << _index << std::endl;
-	_index++;
 }
 
-void PhoneBook::checkindex(void)
+void PhoneBook::checkindex(PhoneBook &phonebook)
 {
 	std::string input = "";
 	if (_index == MAX_CONTACTS)
@@ -55,6 +54,11 @@ void PhoneBook::checkindex(void)
 		std::cout << "\033[1;34mDo you want to continue? (y/n)\033[0m" << std::endl;
 		std::getline(std::cin, input);
 		if (!input.compare("y"))
+		{
 			_index = _index % MAX_CONTACTS;
+			phonebook._contacts[_index].ClearObject();
+		}
 	}
+	else
+		_index++;
 }

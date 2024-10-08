@@ -6,7 +6,7 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 19:25:20 by aeid              #+#    #+#             */
-/*   Updated: 2024/10/07 22:35:26 by aeid             ###   ########.fr       */
+/*   Updated: 2024/10/08 19:10:55 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void add_first_name(PhoneBook &phonebook)
 	std::string input = "";
 	
 	do {
-		std::cout << "\033[1;34mEnter the first name: \033[0m" << std::endl;
+		std::cout << "\033[1;34mInsert the first name: \033[0m" << std::endl;
 		std::getline(std::cin, input);
 	} while (is_empty(input));
 	phonebook.addcontact(input, FIRSTNAME);
@@ -39,7 +39,7 @@ static void add_last_name(PhoneBook &phonebook)
 	std::string input = "";
 	
 	do {
-		std::cout << "\033[1;34mEnter the last name: \033[0m" << std::endl;
+		std::cout << "\033[1;34mInsert the last name: \033[0m" << std::endl;
 		std::getline(std::cin, input);
 	} while (is_empty(input));
 	phonebook.addcontact(input, LASTNAME);
@@ -50,7 +50,7 @@ static void add_nickname(PhoneBook &phonebook)
 	std::string input = "";
 	
 	do {
-		std::cout << "\033[1;34mEnter the nickname: \033[0m" << std::endl;
+		std::cout << "\033[1;34mInsert the nickname: \033[0m" << std::endl;
 		std::getline(std::cin, input);
 	} while (is_empty(input));
 	phonebook.addcontact(input, NICKNAME);
@@ -61,7 +61,7 @@ static void add_phonenum(PhoneBook &phonebook)
 	std::string input = "";
 	
 	do {
-		std::cout << "\033[1;34mEnter the phone number: \033[0m" << std::endl;
+		std::cout << "\033[1;34mInsert the phone number: \033[0m" << std::endl;
 		std::getline(std::cin, input);
 	} while (is_empty(input));
 	phonebook.addcontact(input, PHONENUM);
@@ -72,7 +72,7 @@ static void add_darkest_secret(PhoneBook &phonebook)
 	std::string input = "";
 	
 	do {
-		std::cout << "\033[1;34mEnter the darkest secret: \033[0m" << std::endl;
+		std::cout << "\033[1;34mInsert the darkest secret: \033[0m" << std::endl;
 		std::getline(std::cin, input);
 	} while (is_empty(input));
 	phonebook.addcontact(input, DARKESTSECRET);
@@ -83,7 +83,7 @@ static void add_underwear(PhoneBook &phonebook)
 	std::string input = "";
 	
 	do {
-		std::cout << "\033[1;34mEnter favorite underwear color: \033[0m" << std::endl;
+		std::cout << "\033[1;34mInsert favorite underwear color: \033[0m" << std::endl;
 		std::getline(std::cin, input);
 	} while (is_empty(input));
 	phonebook.addcontact(input, UNDERWEAR);
@@ -91,12 +91,12 @@ static void add_underwear(PhoneBook &phonebook)
 
 void add_function(PhoneBook &phonebook)
 {
-	phonebook.checkindex();
+	phonebook.checkindex(phonebook);
 	add_first_name(phonebook);
 	add_last_name(phonebook);
 	add_nickname(phonebook);
 	add_phonenum(phonebook);
 	add_darkest_secret(phonebook);
 	add_underwear(phonebook);
-	phonebook.increase_index();
+	phonebook.printuser();
 }
