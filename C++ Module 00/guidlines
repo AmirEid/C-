@@ -1,0 +1,21 @@
+1- compile with c++ and flags
+2- code should compile with -st=c++98
+3- folder per each ex
+4- names as required
+5- class name in UpperCamelCase, files with classes should have the same
+name like the file.
+ClassName.hpp ClassName.h ClassName.cpp ClassName.tpp BrickWall standing for
+brick wall, inside the header its name will be BrickWall.hpp
+6- always messages ends with \n
+7- Cannot use namespace directive, which is useful to avoid having to 
+specify the namespace everytime I use its classes or functions. 
+8- friend keyword cannot be used, because it allows one class to access
+the private or protected members of another class.
+9- STL Standard template library, it provides many useful features like containers vector list map and algorithms like sorting and searching.
+10- No include algorithms which is useful because it has functions like sort() and find().
+11- when allocating memory using new, it should be released using delete.
+12- Orthodox canonical form: 
+a- function to destroy object
+b- function to copy an existing object
+c- assignment function that ensure when an object assigned to another, it makes sure they are properly copied and it checks if it was self assigned.
+d- default constructor that is when an object created without any arguments, it initializes the object to a valid state.
