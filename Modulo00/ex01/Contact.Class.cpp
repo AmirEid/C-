@@ -6,7 +6,7 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 23:59:42 by aeid              #+#    #+#             */
-/*   Updated: 2024/10/08 17:26:42 by aeid             ###   ########.fr       */
+/*   Updated: 2024/10/09 18:05:20 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,15 @@ void Contact::setfield(std::string& input, Fields field)
 		_Underwear = input;
 }
 
-void Contact::ClearObject(void)
-{
-	_FirstName.clear();
-	_LastName.clear();
-	_NickName.clear();
-	_PhoneNum.clear();
-	_DarkestSecret.clear();
-	_Underwear.clear();
-}
+// void Contact::ClearObject(void)
+// {
+// 	this->_FirstName.clear();
+// 	this->_LastName.clear();
+// 	this->_NickName.clear();
+// 	this->_PhoneNum.clear();
+// 	this->_DarkestSecret.clear();
+// 	this->_Underwear.clear();
+// }
 
 std::string Contact::getfield(Fields field)
 {

@@ -6,7 +6,7 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 23:48:26 by aeid              #+#    #+#             */
-/*   Updated: 2024/10/08 19:40:48 by aeid             ###   ########.fr       */
+/*   Updated: 2024/10/09 19:28:54 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,8 @@ class PhoneBook {
 	public:
 	PhoneBook(void);
 	~PhoneBook(void);
-	void checkindex(PhoneBook &phonebook);
+	bool checkindex();
 	void addcontact(std::string& input, Fields field);
-	void printuser(void);
 	void search_contact(PhoneBook &phonebook);
 	int get_id();
 

@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.Class.hpp                                  :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/06 23:52:12 by aeid              #+#    #+#             */
-/*   Updated: 2024/10/08 17:14:44 by aeid             ###   ########.fr       */
+/*   Created: 2024/10/09 23:42:52 by aeid              #+#    #+#             */
+/*   Updated: 2024/10/10 17:24:04 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_CLASS_HPP
-# define CONTACT_CLASS_HPP
+#ifndef ZOMBIE_CLASS_HPP
+# define ZOMBIE_CLASS_HPP
 
-#include "Fields.hpp"
 #include <iostream>
 #include <string>
+#include <new>
 
-class Contact {
+class Zombie
+{
+	public:
+	Zombie();
+	~Zombie();
+
+	void announce(int i);
+	void setName(std::string name);
 	
-public:
-	Contact(void);
-	~Contact(void);
-	void setfield(std::string& input, Fields field);
-	void ClearObject(void);
-	std::string getfield(Fields field);
-private:
-	std::string _FirstName;
-	std::string _LastName;
-	std::string _NickName;
-	std::string _PhoneNum;
-	std::string _DarkestSecret;
-	std::string _Underwear;
+	private:
+		std::string _name;
+		
 };
+
+Zombie* zombieHorde(int N, std::string name);
 
 #endif

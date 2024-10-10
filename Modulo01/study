@@ -1,0 +1,51 @@
+Important notes:
+an object can have several constructors that we could choose from.
+if you pick one you cant call the others.
+the initialization list can only be used with constructors
+
+Allocate memory for classes:
+
+- new and delete to allocate memory.
+- ClassName* VariableName = new ClassName(void or params);
+- delete VariableName.
+
+Another way to do it:
+-ClassName* VariableName = new ClassName[the number i want to allocate]
+-delete [] VariableName
+
+References:
+(We could use references as parameters, returned value, initialized instance)
+
+In C, we use pointer to point to an instance of something.
+ex: int Ballnum = 42;
+int* Ballptr = & Ballnum;
+*Ballptr = 21;
+in C++, the pointers still exist, but I also have references. the thing is
+references cannot be changed.  they are Const and cannot be reassigned.
+pointers do!
+int& Ballref = Ballnum;
+Ballref = 42; (Now it is back to be 42 again)
+- I can also use references as parameter. 
+void blabla(std::string& str) vs void blabla(std::string *str).
+void bla(std::string const & str) vs void bla(std::string const * str).
+
+when i return value in c++,
+std::string* blabla()
+std::string& blabla()
+if i return a pointer, return &(this->_login)
+if i return a reference return (this->_login)
+
+NOTE: REFERENCES CANNOT BE UNINITIALIZED.
+so if i cant use a reference to uninitialized attribute or class.
+but i can use a pointer to uninitialized attribute of class.
+
+FILESTREAMS:
+filestreams are streams that will interact with files.
+we need to include <fstream>
+std::ifstream ifs("numbers") ifs = input files
+unsigned int dst;
+unsigned int dst2;
+ifs >> dst >> dst2;
+ifs.close();
+std::ofstream ofs("test.out") ofs = output files
+

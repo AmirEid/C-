@@ -6,7 +6,7 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 00:14:45 by aeid              #+#    #+#             */
-/*   Updated: 2024/10/08 20:42:30 by aeid             ###   ########.fr       */
+/*   Updated: 2024/10/10 00:12:54 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,41 +24,37 @@ PhoneBook::~PhoneBook(void) {
 
 void PhoneBook::addcontact(std::string& input, Fields field)
 {
-	if (_index >= 0 && _index < MAX_CONTACTS) {
+	int actual_index = _index % MAX_CONTACTS;
+	
 	if (field == FIRSTNAME)
-		_contacts[_index].setfield(input, FIRSTNAME);
+		_contacts[actual_index].setfield(input, FIRSTNAME);
 	else if (field == LASTNAME)
-		_contacts[_index].setfield(input, LASTNAME);
+		_contacts[actual_index].setfield(input, LASTNAME);
 	else if (field == NICKNAME)
-		_contacts[_index].setfield(input, NICKNAME);
+		_contacts[actual_index].setfield(input, NICKNAME);
 	else if (field == PHONENUM)
-		_contacts[_index].setfield(input, PHONENUM);
+		_contacts[actual_index].setfield(input, PHONENUM);
 	else if (field == DARKESTSECRET)
-		_contacts[_index].setfield(input, DARKESTSECRET);
+		_contacts[actual_index].setfield(input, DARKESTSECRET);
 	else if (field == UNDERWEAR)
-		_contacts[_index].setfield(input, UNDERWEAR);
-	}
+		_contacts[actual_index].setfield(input, UNDERWEAR);
 }
 
-void PhoneBook::printuser(void)
-{
-	std::cout << "\033[1;36mNew Contact Added!\nContact ID: \033[0m" << _index << std::endl;
-}
-
-void PhoneBook::checkindex(PhoneBook &phonebook)
+bool PhoneBook::checkindex()
 {
 	std::string input = "";
-	if (_index == MAX_CONTACTS)
+	if (_index == MAX_CONTACTS - 1)
 	{
 		std::cout << "\033[1;31mPhoneBook is full! We will start overwriting.\033[0m" << std::endl;
-		std::cout << "\033[1;34mDo you want to continue? (y/n)\033[0m" << std::endl;
+		std::cout << "\033[1;34mTO continue (y), or press anything else to skip\033[0m" << std::endl;
 		std::getline(std::cin, input);
 		if (!input.compare("y"))
 		{
-			_index = _index % MAX_CONTACTS;
-			phonebook._contacts[_index].ClearObject();
+			_index++;
+			return true;
 		}
+		return false;
 	}
-	else
-		_index++;
+	_index++;
+	return true;
 }

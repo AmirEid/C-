@@ -6,7 +6,7 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 15:21:36 by aeid              #+#    #+#             */
-/*   Updated: 2024/10/08 20:47:35 by aeid             ###   ########.fr       */
+/*   Updated: 2024/10/09 18:18:56 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void show_contact(Contact contacts[], int id)
 {
 	const std::string color = "\033[1;34m";
 	const std::string reset = "\033[0m";
-	
+
 	std::cout << color << std::setfill('=') << "" << reset << std::endl;
 	std::cout << std::setfill(' ');
 	std::cout << "Here are details of contact: " << color << id << reset << std::endl;
@@ -52,16 +52,16 @@ int PhoneBook::get_id()
 		try {
 			id = std::stoi(input, nullptr, 10);
 			if (id < 0 || id > (MAX_CONTACTS - 1))
-				throw std::invalid_argument("Invalid ID");
-			else if (id > _index || _contacts[id].getfield(FIRSTNAME).empty())
-				throw std::out_of_range("Invalid ID");
+				throw std::invalid_argument("😠😠😠😠😠😠😠😠😠");
+			else if (id > _index % MAX_CONTACTS || _contacts[id].getfield(FIRSTNAME).empty())
+				throw std::out_of_range("😠😠😠😠😠😠😠😠😠😠😠😠😠😠😠");
 			else
 				flag = true;
 		} catch (std::invalid_argument &e) {
-			std::cout << "\033[1;31mInvalid ID. Try again.\033[0m" << std::endl;
+			std::cout << "\033[1;31mOnly insert acceptable characters..Smart Ass😠.\033[0m" << std::endl;
 			input.clear();
 		} catch (std::out_of_range &e) {
-			std::cout << "\033[1;31mInvalid ID. Try again.\033[0m" << std::endl;
+			std::cout << "\033[1;31mOnly insert acceptable characters..Smart Ass😠.\033[0m" << std::endl;
 			input.clear();
 		}
 	} while (!flag);
@@ -83,7 +83,7 @@ void PhoneBook::_print_contact(Contact contacts[], int id)
 		std::cout << std::setw(MAX_WIDTH) << "Nickname" << red << "|" << reset << std::endl;
 		std::cout << red << std::setw((MAX_WIDTH * 4) + 5) << std::setfill('-') << "" << reset << std::endl;
 		std::cout << std::setfill(' ');
-		for (int i = 0; (i < MAX_CONTACTS && i <= _index); i++)
+		for (int i = 0; i <= _index && i < MAX_CONTACTS; i++)
 		{
 			if (contacts[i].getfield(FIRSTNAME).empty())
 				break;

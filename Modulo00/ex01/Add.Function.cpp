@@ -6,7 +6,7 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 19:25:20 by aeid              #+#    #+#             */
-/*   Updated: 2024/10/08 19:10:55 by aeid             ###   ########.fr       */
+/*   Updated: 2024/10/09 18:08:20 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,12 +91,14 @@ static void add_underwear(PhoneBook &phonebook)
 
 void add_function(PhoneBook &phonebook)
 {
-	phonebook.checkindex(phonebook);
-	add_first_name(phonebook);
-	add_last_name(phonebook);
-	add_nickname(phonebook);
-	add_phonenum(phonebook);
-	add_darkest_secret(phonebook);
-	add_underwear(phonebook);
-	phonebook.printuser();
+	if (phonebook.checkindex())
+	{
+		add_first_name(phonebook);
+		add_last_name(phonebook);
+		add_nickname(phonebook);
+		add_phonenum(phonebook);
+		add_darkest_secret(phonebook);
+		add_underwear(phonebook);
+		std::cout << "\033[1;36mNew Contact Added!\033[0m" << std::endl;
+	}
 }
