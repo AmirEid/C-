@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/11 15:42:00 by amireid           #+#    #+#             */
-/*   Updated: 2024/10/16 16:34:37 by aeid             ###   ########.fr       */
+/*   Created: 2024/10/16 17:12:13 by aeid              #+#    #+#             */
+/*   Updated: 2024/10/16 17:47:22 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-# define HARL_HPP
+# include "Harl.hpp"
 
-# include <iostream>
-# include <string>
-
-class Harl {
-  
-  public:
-    Harl(void);
-    ~Harl(void);
-
-    void complain(std::string level);
-  private:
-    void _debug(void) const;
-    void _info(void) const;
-    void _warning(void) const;
-    void _error(void) const;
-        
-};
-
-#endif
+int main(int argc, const char **argv)	
+{
+	if (argc != 2)
+	{
+		std::cout << "Error: Harl can't take it anymore!" << std::endl;
+		return (1);
+	}
+	Harl harl;
+	harl.complain(argv[1]);
+	return (0);
+}

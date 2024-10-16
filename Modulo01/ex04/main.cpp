@@ -6,7 +6,7 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 20:24:10 by aeid              #+#    #+#             */
-/*   Updated: 2024/10/11 01:14:39 by aeid             ###   ########.fr       */
+/*   Updated: 2024/10/16 18:25:06 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ std::string read_from_file(std::ifstream& file)
 			break;
 		content += "\n";
 	}
-	std::cout << content;
 	return (content);
 }
 

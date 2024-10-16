@@ -6,7 +6,7 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 15:41:31 by amireid           #+#    #+#             */
-/*   Updated: 2024/10/16 17:37:54 by aeid             ###   ########.fr       */
+/*   Updated: 2024/10/16 18:07:08 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,44 +22,64 @@ Harl::~Harl(void)
     return ;
 }
 
+Level get_level(const std::string level)
+{
+	if (level == "DEBUG")
+		return (DEBUG);
+	else if (level == "INFO")
+		return (INFO);
+	else if (level == "WARNING")
+		return (WARNING);
+	else if (level == "ERROR")
+		return (ERROR);
+	else
+		return (UNKNOWN);
+}
+
 void Harl::_debug(void) const
 {
-    std::cout << "Harl DEBUG: Shit, I have to sleep early every day!" << std::endl;
+    std::cout << "Harl: Shit, I have to sleep early every day!" << std::endl;
     return ;
 }
 
 void Harl::_info(void) const
 {
-    std::cout << "Harl INFO: Shit I think I can make if I slept only 6 only!" << std::endl;
+    std::cout << "Harl: Shit I think I can make if I slept only 6 only!" << std::endl;
     return ;
 }
 
 void Harl::_warning(void) const
 {
-    std::cout << "Harl WARNING: This job is bad, I don't like it that much anyway!" << std::endl;
+    std::cout << "Harl: This job is bad, I don't like it that much anyway!" << std::endl;
     return ;
 }
 
 void Harl::_error(void) const
 {
-    std::cout << "Harl ERROR: Harl left his job and ended up unemployed again" << std::endl;
+    std::cout << "Harl: Harl left his job and ended up unemployed again" << std::endl;
     return ;
 }
 
-void Harl::complain(std::string level)
+void Harl::complain(const std::string level)
 {
-    std::string eq[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	void (Harl::*func[4])() const = {&Harl::_debug, &Harl::_info, &Harl::_warning, &Harl::_error};
-	
-	for (int i = 0; i < 4; i++)
+	Level string;
+	string = get_level(level);
+	if (string != UNKNOWN)
+		std::cout << "[ " << level << " ]" << std::endl;
+	switch(string)
 	{
-		//if (!eq[i].compare(level))
-		if (eq[i] == level)
-		{
-			(this->*func[i])();
-			return;
-		}
+		case DEBUG:
+			_debug();
+		case INFO:
+			_info();
+		case ERROR:
+			_error();
+		case WARNING:
+			_warning();
+			break;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+			break;
 	}
-	std::cout << "Crisi esistenziale!" << std::endl;
 	return;
 }

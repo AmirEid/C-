@@ -6,7 +6,7 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 15:42:00 by amireid           #+#    #+#             */
-/*   Updated: 2024/10/16 16:34:37 by aeid             ###   ########.fr       */
+/*   Updated: 2024/10/16 17:53:55 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,14 @@ class Harl {
     void _warning(void) const;
     void _error(void) const;
         
+};
+
+enum Level {
+    DEBUG,
+    INFO,
+    WARNING,
+    ERROR,
+    UNKNOWN
 };
 
 #endif
