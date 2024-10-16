@@ -6,7 +6,7 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 20:24:10 by aeid              #+#    #+#             */
-/*   Updated: 2024/10/16 18:25:06 by aeid             ###   ########.fr       */
+/*   Updated: 2024/10/16 21:47:43 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ std::string replace_words(std::string& content, std::string s1, std::string s2)
 
 int main (int argc, char **argv)
 {
-	std::cout << "argc: " << argc << std::endl;
 	if (argc != 4)
 	{
 		std::cout << "Invalid number of arguments" << std::endl;
@@ -56,7 +55,13 @@ int main (int argc, char **argv)
 	std::ifstream file(argv[1]);
 	if(!file.is_open())
 	{
-		std::cout << "File not found" << std::endl;
+		std::cout << "Invalid file" << std::endl;
+		return (1);
+	}
+	if (file.peek() == EOF)
+	{
+		std::cout << "File is empty" << std::endl;
+		file.close();
 		return (1);
 	}
 	std::string content = read_from_file(file);
@@ -64,6 +69,7 @@ int main (int argc, char **argv)
 	if(!new_file.is_open())
 	{
 		std::cout << "Error creating new file" << std::endl;
+		file.close();
 		return (1);
 	}
 	std::string s1 = argv[2];
