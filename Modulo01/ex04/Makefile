@@ -6,7 +6,7 @@
 #    By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/10 23:45:59 by aeid              #+#    #+#              #
-#    Updated: 2024/10/11 01:13:57 by aeid             ###   ########.fr        #
+#    Updated: 2024/10/20 16:16:41 by aeid             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = SedLosers
 SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
 CC = g++
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 BLUE = \033[0;34m
 NC = \033[0m

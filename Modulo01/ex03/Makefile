@@ -6,7 +6,7 @@
 #    By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/10 18:17:55 by aeid              #+#    #+#              #
-#    Updated: 2024/10/10 18:18:54 by aeid             ###   ########.fr        #
+#    Updated: 2024/10/20 16:08:41 by aeid             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = UnnecessaryViolence
 SRC = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = g++
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 BLUE = \033[0;34m
 NC = \033[0m

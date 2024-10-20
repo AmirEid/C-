@@ -6,7 +6,7 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 20:24:10 by aeid              #+#    #+#             */
-/*   Updated: 2024/10/16 21:47:43 by aeid             ###   ########.fr       */
+/*   Updated: 2024/10/20 16:19:27 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int main (int argc, char **argv)
 		return (1);
 	}
 	std::string content = read_from_file(file);
-	std::ofstream new_file(argv[1] + std::string(".replace"));
+	std::ofstream new_file((argv[1] + std::string(".replace")).c_str());
 	if(!new_file.is_open())
 	{
 		std::cout << "Error creating new file" << std::endl;

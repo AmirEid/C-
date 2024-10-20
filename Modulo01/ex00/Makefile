@@ -6,7 +6,7 @@
 #    By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/09 23:21:41 by aeid              #+#    #+#              #
-#    Updated: 2024/10/09 23:47:21 by aeid             ###   ########.fr        #
+#    Updated: 2024/10/20 16:08:36 by aeid             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRC = Zombie.cpp main.cpp newZombie.cpp randomChump.cpp
 OBJ = $(SRC:.cpp=.o)
 
 CPP = g++
-CPPFLAGS = -Wall -Wextra -Werror
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 BLUE = \033[0;34m
 NC = \033[0m

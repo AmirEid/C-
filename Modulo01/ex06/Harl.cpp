@@ -6,7 +6,7 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 15:41:31 by amireid           #+#    #+#             */
-/*   Updated: 2024/10/16 18:07:08 by aeid             ###   ########.fr       */
+/*   Updated: 2024/10/20 17:54:31 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,10 @@ void Harl::complain(const std::string level)
 			_debug();
 		case INFO:
 			_info();
-		case ERROR:
-			_error();
 		case WARNING:
 			_warning();
+		case ERROR:
+			_error();
 			break;
 		default:
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;

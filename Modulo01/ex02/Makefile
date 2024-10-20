@@ -6,7 +6,7 @@
 #    By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/10 17:32:00 by aeid              #+#    #+#              #
-#    Updated: 2024/10/10 17:33:24 by aeid             ###   ########.fr        #
+#    Updated: 2024/10/20 17:52:52 by aeid             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = HI_THIS_IS_BRAIN
 SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = g++
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 BLUE = \033[0;34m
 NC = \033[0m

@@ -6,7 +6,7 @@
 #    By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/09 23:21:41 by aeid              #+#    #+#              #
-#    Updated: 2024/10/10 17:22:56 by aeid             ###   ########.fr        #
+#    Updated: 2024/10/20 16:07:48 by aeid             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRC = Zombie.cpp main.cpp zombieHorde.cpp
 OBJ = $(SRC:.cpp=.o)
 
 CPP = g++
-CPPFLAGS = -Wall -Wextra -Werror
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 BLUE = \033[0;34m
 NC = \033[0m
