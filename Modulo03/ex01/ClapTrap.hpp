@@ -6,7 +6,7 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 22:25:23 by aeid              #+#    #+#             */
-/*   Updated: 2024/10/28 20:52:46 by aeid             ###   ########.fr       */
+/*   Updated: 2024/10/28 20:52:59 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@
 
 class ClapTrap {
   
-  public:
+  public :
+    
     ClapTrap(std::string name);
     ClapTrap(const ClapTrap &src);
     ~ClapTrap();
@@ -45,14 +46,13 @@ class ClapTrap {
     void set_mana_value(unsigned int mana);
     void set_dmg_value(unsigned int dmg);
     
-  private:
+  protected :
   
-    ClapTrap();
     std::string _name;
     unsigned int _hp;
     unsigned int _mana;
     unsigned int _dmg;
-    
+    ClapTrap();
 };
 
 #endif
