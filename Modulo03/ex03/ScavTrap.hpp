@@ -6,7 +6,7 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 20:19:13 by aeid              #+#    #+#             */
-/*   Updated: 2024/10/28 20:30:47 by aeid             ###   ########.fr       */
+/*   Updated: 2024/10/29 19:50:09 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap {
+class ScavTrap : virtual public ClapTrap {
     
     public :
         ScavTrap(const std::string name);

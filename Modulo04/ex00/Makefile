@@ -6,12 +6,12 @@
 #    By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/27 16:37:21 by aeid              #+#    #+#              #
-#    Updated: 2024/10/29 19:46:23 by aeid             ###   ########.fr        #
+#    Updated: 2024/11/06 19:21:18 by aeid             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = trap
-SRC = ClapTrap.cpp main.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
+NAME = animal
+SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp
 OBJ = $(SRC:.cpp=.o)
 FLAGS = -Wall -Wextra -Werror -std=c++98
 CC = g++

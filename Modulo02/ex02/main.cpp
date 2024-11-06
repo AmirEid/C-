@@ -6,7 +6,7 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 16:37:02 by aeid              #+#    #+#             */
-/*   Updated: 2024/10/27 19:25:04 by aeid             ###   ########.fr       */
+/*   Updated: 2024/10/28 12:39:33 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int main( void ) {
     std::cout << a++ << std::endl;
     std::cout << a << std::endl;
     std::cout << b << std::endl;
+    std::cout << Fixed::min( a, b ) << std::endl;
     std::cout << Fixed::max( a, b ) << std::endl;
     return 0;
 }
