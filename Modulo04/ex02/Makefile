@@ -6,12 +6,12 @@
 #    By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/27 16:37:21 by aeid              #+#    #+#              #
-#    Updated: 2024/11/07 15:10:42 by aeid             ###   ########.fr        #
+#    Updated: 2024/11/07 17:48:34 by aeid             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = animal
-SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
+SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 OBJ = $(SRC:.cpp=.o)
 FLAGS = -Wall -Wextra -Werror -std=c++98
 CC = g++

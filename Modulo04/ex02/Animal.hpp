@@ -6,7 +6,7 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:42:05 by aeid              #+#    #+#             */
-/*   Updated: 2024/11/07 18:02:29 by aeid             ###   ########.fr       */
+/*   Updated: 2024/11/07 21:46:39 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Animal {
         virtual ~Animal();
         Animal(const Animal & src);
         Animal & operator=(const Animal & src);
-        virtual void makeSound() const;
+        virtual void makeSound() const = 0;
         void setType(const std::string type);
         std::string getType() const ;
         

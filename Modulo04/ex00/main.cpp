@@ -6,13 +6,15 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:04:52 by aeid              #+#    #+#             */
-/*   Updated: 2024/11/06 19:17:53 by aeid             ###   ########.fr       */
+/*   Updated: 2024/11/07 15:32:26 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Animal.hpp"
 # include "Dog.hpp"
 # include "Cat.hpp"
+# include "WrongAnimal.hpp"
+# include "WrongCat.hpp"
 
 int main ()
 {
@@ -37,10 +39,20 @@ int main ()
         meta->makeSound();
         delete meta;
         delete j;
+        delete i;
     }
     {
         const Dog* dog = new Dog();
         const Dog dog1 = Dog(*dog);
         delete dog;
+    }
+       {
+        const WrongAnimal* meta = new WrongAnimal();
+        const WrongAnimal* i = new WrongCat();
+        std::cout << i->getType() << " " << std::endl;
+        i->makeSound();
+        meta->makeSound();
+        delete meta;
+        delete i;
     }
 }

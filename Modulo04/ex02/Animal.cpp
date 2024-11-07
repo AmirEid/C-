@@ -6,7 +6,7 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:41:54 by aeid              #+#    #+#             */
-/*   Updated: 2024/11/07 22:50:39 by aeid             ###   ########.fr       */
+/*   Updated: 2024/11/07 22:51:03 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,4 @@ void Animal::setType(const std::string type) {
 
 std::string Animal::getType() const {
     return this->_type;
-}
-
-void Animal::makeSound() const {
-    std::cout << "generic soung" << std::endl;
-    return ;
 }
