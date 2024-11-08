@@ -6,12 +6,12 @@
 #    By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/27 16:37:21 by aeid              #+#    #+#              #
-#    Updated: 2024/11/07 23:06:48 by aeid             ###   ########.fr        #
+#    Updated: 2024/11/08 20:49:46 by aeid             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = character
-SRC = AMateria.cpp Cure.cpp
+SRC = AMateria.cpp Cure.cpp Ice.cpp Character.cpp MateriaSource.cpp
 OBJ = $(SRC:.cpp=.o)
 FLAGS = -Wall -Wextra -Werror -std=c++98
 CC = g++

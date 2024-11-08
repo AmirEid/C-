@@ -6,7 +6,7 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 21:49:02 by aeid              #+#    #+#             */
-/*   Updated: 2024/11/07 23:22:16 by aeid             ###   ########.fr       */
+/*   Updated: 2024/11/08 20:10:35 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,20 @@
 # define BLUE    "\033[34m"
 # define MAGENTA "\033[35m"
 # define RESET   "\033[0m"
+# define CYAN    "\033[36m"
+# define BRIGHT_RED  "\033[91m"
 # define S_CONSTRUCTOR "String param, constructor called "
 # define C_CONSTRUCTOR "Copier constructor called "
 # define DCONSTRUCTOR "Decostructor called "
 # define CURECONST "Cure constructor called "
 # define CUREDECONT "Cure decostructor called " 
 # define CURECOPYCONST "Cure copy constructor called "
+# define ICECONST "Ice constructor called "
+# define ICEDECON "Ice decostructor called "
+# define ICECPY "Ice copy constructor called "
+# define CHARCONST "Character constructor called "
+# define CHARDECON "Character decostructor called "
+# define CHARCPY "Character copy constructor called "
 
 class AMateria {
     protected:

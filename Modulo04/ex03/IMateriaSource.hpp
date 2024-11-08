@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 21:52:18 by aeid              #+#    #+#             */
-/*   Updated: 2024/11/08 20:17:42 by aeid             ###   ########.fr       */
+/*   Created: 2024/11/08 20:44:06 by aeid              #+#    #+#             */
+/*   Updated: 2024/11/08 20:45:09 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef ICHARACTER_HPP
-# define ICHARACTER_HPP
+# ifndef IMATERIASOURCE_HPP
+# define IMATERIASOURCE_HPP
 
 # include "AMateria.hpp"
 
-
-// {} this in the destructor means that this destructor does not do anything while destroyed.
-class ICharacter
+class IMateriaSource
 {
     public:
-        virtual ~ICharacter() {}
-        virtual std::string const & getName() const = 0;
-        virtual void equip(AMateria* m) = 0;
-        virtual void unequip(int idx) = 0;
-        virtual void use(int idx, ICharacter & target) = 0;
+        virtual ~IMateriaSource() {}
+        virtual void learnMateria(AMateria*) = 0;
+        virtual AMateria* createMateria(std::string const & type) = 0;
 };
 
 # endif
