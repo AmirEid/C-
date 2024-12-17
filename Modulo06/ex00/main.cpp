@@ -6,15 +6,15 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:28:26 by aeid              #+#    #+#             */
-/*   Updated: 2024/12/16 17:42:39 by aeid             ###   ########.fr       */
+/*   Updated: 2024/12/16 23:06:32 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/ScalarConverter.hpp"
 
 int main (int argc, char **argv) {
-    if (argc != 2) {
-        std::cerr << "Error: Invalid number of arguments" << std::endl;
+    if (argc != 2 || argv[1][0] == '\0') {
+        std::cerr << "Error: Invalid argument" << std::endl;
         exit (1);
     }
     try {
