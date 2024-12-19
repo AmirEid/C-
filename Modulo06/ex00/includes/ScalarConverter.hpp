@@ -6,7 +6,7 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 22:43:51 by aeid              #+#    #+#             */
-/*   Updated: 2024/12/17 19:39:51 by aeid             ###   ########.fr       */
+/*   Updated: 2024/12/19 16:22:38 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class ScalarConverter {
         static void convert(const std::string &literal);
         
       private:
+        operator int() const;
         ScalarConverter();
         ~ScalarConverter();
         ScalarConverter(const ScalarConverter &other);

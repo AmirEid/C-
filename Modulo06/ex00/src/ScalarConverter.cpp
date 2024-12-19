@@ -6,7 +6,7 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 16:05:51 by aeid              #+#    #+#             */
-/*   Updated: 2024/12/17 19:59:26 by aeid             ###   ########.fr       */
+/*   Updated: 2024/12/18 18:15:13 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void ScalarConverter::charPrinter(double d) {
     if (d > MAX_CHAR || d < MIN_CHAR)
         std::cout << "Char: impossible" << std::endl;
     else if (std::isprint(static_cast<char>(d)))
-        std::cout << "Char: " << static_cast<char>(d) << std::endl;
+        std::cout << "Char: '" << static_cast<char>(d) << "'" << std::endl;
     else
         std::cout << "Char: Non displayable" << std::endl;
 }
@@ -63,16 +63,16 @@ void ScalarConverter::intPrinter(double d) {
 
 void ScalarConverter::floatPrinter(double d) {
     if (d > MAX_FLOAT || d < MIN_FLOAT)
-        std::cout << std::fixed << "Float: impossible" << std::endl;
+        std::cout << std::fixed << std::setprecision(1) << "Float: impossible" << std::endl;
     else
-        std::cout << std::fixed << "Float: " << static_cast<float>(d) << "f" << std::endl;
+        std::cout << std::fixed << std::setprecision(1) << "Float: " << static_cast<float>(d) << "f" << std::endl;
 }
 
 void ScalarConverter::doublePrinter(double d) {
     if (d > MAX_DOUBLE || d < MIN_DOUBLE)
-        std::cout << std::fixed << "Double: impossible" << std::endl;
+        std::cout << std::fixed << std::setprecision(1) << "Double: impossible" << std::endl;
     else
-        std::cout << std::fixed << "Double: " << d << std::endl;
+        std::cout << std::fixed << std::setprecision(1) << "Double: " << d << std::endl;
 }
 
 bool ScalarConverter::containsAlpha(const std::string &literal) {
@@ -80,7 +80,11 @@ bool ScalarConverter::containsAlpha(const std::string &literal) {
     int sign = 1;
     for (size_t i = 0; i < literal.length(); i++) {
         if (std::isalpha(literal[i]))
+        {
+            if (literal[i] == 'f' && i == literal.length() - 1)
+                continue;
             return true;
+        }
         else if (literal[i] == '.' && point)
             point = 0;
         else if (literal[i] == '-' && sign)
