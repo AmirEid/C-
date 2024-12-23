@@ -6,7 +6,7 @@
 /*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:08:49 by aeid              #+#    #+#             */
-/*   Updated: 2024/12/20 17:46:49 by aeid             ###   ########.fr       */
+/*   Updated: 2024/12/23 14:15:08 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,17 @@ void printer(Value const &a) {
     std::cout << COLOR << a << RESET << std::endl;
 }
 
+template <>
+void printer(const std::string &a) {
+    std::cout << RED << "using specialisation string template function" << RESET << std::endl;
+    std::cout << COLOR << a << RESET << std::endl;
+}
+
+template <typename Value>
+void addition(Value const &a) {
+    std::cout << RED << "using specialisation addition function" << RESET << std::endl;
+    std::cout << COLOR << a + 1 << RESET << std::endl;    
+}
 // in case i have another version of printer function where it takes different parameter, i will need to 
 // cast the function in the main , so the compiler can know which function to use
 // cast should be like this for example:
