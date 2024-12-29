@@ -6,7 +6,7 @@
 /*   By: amireid <amireid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 19:04:59 by amireid           #+#    #+#             */
-/*   Updated: 2024/12/29 22:41:56 by amireid          ###   ########.fr       */
+/*   Updated: 2024/12/29 23:29:03 by amireid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void BitcoinExchange::_initDB()
         std::string line = "";
         std::getline(file, line, '\n');
         if (line != "date,exchange_rate")
-            throw DataBaseError("Error: invalid file header");    
+            throw DataBaseError("Error: invalid file header");   
         while (std::getline(file, line, '\n')) {
             size_t pos = line.find(',');
             if (pos == std::string::npos)
@@ -73,7 +73,8 @@ void BitcoinExchange::_initDB()
                 throw DataBaseError("Error: exceeded limit at line: " + line);
             }
     }
-        file.close();    
+        file.close();
+        std::cout << GREEN << "Database loaded successfully" << RESET << std::endl;
     } catch (DataBaseError &e) {
         std::cerr << RED << e.what() << RESET << std::endl;
     } 
