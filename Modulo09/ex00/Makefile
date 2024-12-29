@@ -6,11 +6,11 @@
 #    By: amireid <amireid@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/09 20:41:47 by aeid              #+#    #+#              #
-#    Updated: 2024/12/26 13:52:05 by amireid          ###   ########.fr        #
+#    Updated: 2024/12/29 14:28:29 by amireid          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = easy_find
+NAME = btc
 CPP = ./src
 SRC = main.cpp $(wildcard $(CPP)/*.cpp)
 OBJ = $(SRC:.cpp=.o)
