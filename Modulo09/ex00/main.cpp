@@ -14,9 +14,13 @@
 
 # include "./inc/BitcoinExchange.hpp"
 
-int main()
+int main(int argc, char **argv)
 {
-    BitcoinExchange exchange;
+    if (argc != 2) {
+        std::cerr << RED << "Error: invalid number of arguments" << RESET << std::endl;
+        exit (1);
+    }
+    BitcoinExchange input_file(argv[1]);
 
     return (0);
 }
