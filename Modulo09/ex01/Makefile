@@ -6,11 +6,11 @@
 #    By: amireid <amireid@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/09 20:41:47 by aeid              #+#    #+#              #
-#    Updated: 2025/01/04 13:08:09 by amireid          ###   ########.fr        #
+#    Updated: 2025/01/03 11:46:43 by amireid          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = btc
+NAME = RPN
 CPP = ./src
 SRC = main.cpp $(wildcard $(CPP)/*.cpp)
 OBJ = $(SRC:.cpp=.o)

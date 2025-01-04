@@ -6,7 +6,7 @@
 /*   By: amireid <amireid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 19:04:59 by amireid           #+#    #+#             */
-/*   Updated: 2025/01/02 20:37:24 by amireid          ###   ########.fr       */
+/*   Updated: 2025/01/04 11:57:07 by amireid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,8 @@ void BitcoinExchange::_parseDate(std::string date) {
 void BitcoinExchange::_initDB()
 {
     std::ifstream file(DB_PATH);
-    if (!file.is_open() || file.peek() == EOF || !file.good() || file.fail()) {
+    if (!file.is_open() || file.peek() == EOF || !file.good() || file.fail())
         throw DataBaseError("Error: invalid file");
-    }
     std::string line = "";
     std::getline(file, line, '\n');
     if (line != "date,exchange_rate")
@@ -71,7 +70,8 @@ void BitcoinExchange::_initDB()
             throw DataBaseError("Error: invalid exchange rate at line: " + line);
         } catch (std::out_of_range &e) {
             throw DataBaseError("Error: exceeded limit at line: " + line);
-        }}
+        } 
+        }
     file.close();
     std::cout << GREEN << "Database loaded successfully" << RESET << std::endl;
 }

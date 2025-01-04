@@ -63,6 +63,7 @@
         "cinttypes": "cpp",
         "iostream": "cpp",
         "*.tpp": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "map": "cpp"
     }
 }
