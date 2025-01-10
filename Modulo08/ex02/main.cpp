@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amireid <amireid@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 15:14:34 by amireid           #+#    #+#             */
-/*   Updated: 2024/12/27 17:21:07 by amireid          ###   ########.fr       */
+/*   Updated: 2025/01/10 17:55:49 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@ int main()
     mstack.push(17);
     //stack should be 5 then 17
     std::cout << mstack.top() << std::endl;
+    std::cout << "----" << std::endl;
     // 5 should be removed and show only 17
     mstack.pop();
     //size should be 1
     std::cout << mstack.size() << std::endl;
+    std::cout << "----" << std::endl;
     mstack.push(3); 
     mstack.push(5); 
     mstack.push(737); 
