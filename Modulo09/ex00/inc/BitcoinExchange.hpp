@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amireid <amireid@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 18:57:25 by amireid           #+#    #+#             */
-/*   Updated: 2025/01/02 19:46:51 by amireid          ###   ########.fr       */
+/*   Updated: 2025/01/11 18:41:03 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,12 @@
 #include <string>
 #include <map>
 #include <fstream>
+#include <sstream>
+#include <limits>
 #include <exception>
 #include <iomanip>
+#include <cstdlib>
+
 
 # define DB_PATH "data.csv"
 
@@ -35,6 +39,8 @@ class BitcoinExchange
         void _initInput(std::string argv);
         void _parseDate(std::string date);
         void _searchDataBase(std::string date, float value);
+        float strToFloat(const std::string &str);
+        int strToInt(const std::string &str);
     
     public:
         BitcoinExchange();

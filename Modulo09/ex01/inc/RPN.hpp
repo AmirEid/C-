@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amireid <amireid@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 14:01:50 by amireid           #+#    #+#             */
-/*   Updated: 2025/01/04 12:48:47 by amireid          ###   ########.fr       */
+/*   Updated: 2025/01/11 19:22:07 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <string>
 # include <sstream>
 # include <stack>
+# include <limits>
 
 
 # define RED "\033[31m"
@@ -28,6 +29,7 @@ class RPN {
         std::stack<int> _stack;
         void _check_number_of_operands(std::string input);
         RPN();
+        int strToInt(const std::string &str);
     
     public:
         RPN(std::string input);

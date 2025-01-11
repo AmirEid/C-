@@ -3,14 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amireid <amireid@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 14:05:01 by amireid           #+#    #+#             */
-/*   Updated: 2025/01/04 13:05:32 by amireid          ###   ########.fr       */
+/*   Updated: 2025/01/11 19:23:03 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../inc/RPN.hpp"
+
+int RPN::strToInt(const std::string &str) {
+    for (size_t i = 0; i < str.length(); i++)
+        if (!std::isdigit(str[i]) && str[i] != '.')
+            throw SyntaxError("Error: invalid exchange rate at line: " + str);
+    std::istringstream iss(str);
+    int result;
+    iss >> result;
+    if (iss.fail())
+        throw SyntaxError("Error: invalid exchange rate at line: " + str);
+    if (result < -std::numeric_limits<int>::max() || result > std::numeric_limits<int>::max())
+        throw SyntaxError("Error: exceeded limit at line: " + str);
+    return result;
+}
 
 void RPN::_check_number_of_operands(std::string input) {
     int operands = 0;
@@ -61,9 +75,8 @@ RPN::RPN(std::string input) : _stack() {
                 }
                 continue;
             }
-            size_t e = 0;
-            int i = std::stoi(input, &e);
-            if (e != input.length() || i > 9)
+            int i = strToInt(input);
+            if (i > 9)
                 throw SyntaxError("Error: invalid operand " + input);
             _stack.push(i);
             if (iss.eof() && _stack.size() != 1)

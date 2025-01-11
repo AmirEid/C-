@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: amireid <amireid@student.42.fr>            +#+  +:+       +#+         #
+#    By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/09 20:41:47 by aeid              #+#    #+#              #
-#    Updated: 2025/01/05 11:14:29 by amireid          ###   ########.fr        #
+#    Updated: 2025/01/11 19:37:48 by aeid             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRC = main.cpp $(wildcard $(CPP)/*.cpp)
 OBJ = $(SRC:.cpp=.o)
 FLAGS = -Wall -Wextra -Werror -std=c++98
 CC = g++ -g
+LDFLAGS = -lpthread
 
 BLUE = \033[0;34m
 NC = \033[0m
@@ -25,11 +26,11 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@echo "$(BLUE)Compiling $(NAME) $(NC)"
-	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	@$(CC) $(FLAGS) $(OBJ) -o $(NAME) $(LDFLAGS)
 
 %.o: %.cpp
 	@echo "$(BLUE)Compiling Complete $(NC)"
-	@$(CC) $(FLAGS) -c $< -o $@
+	@$(CC) $(FLAGS) -c $< -o $@ 
 
 clean:
 	@echo "$(BLUE)Cleaning $(NAME) $(NC)"

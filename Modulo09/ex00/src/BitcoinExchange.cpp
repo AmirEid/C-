@@ -3,14 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amireid <amireid@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 19:04:59 by amireid           #+#    #+#             */
-/*   Updated: 2025/01/04 11:57:07 by amireid          ###   ########.fr       */
+/*   Updated: 2025/01/11 19:20:59 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../inc/BitcoinExchange.hpp"
+
+float BitcoinExchange::strToFloat(const std::string &str) {
+    for (size_t i = 0; i < str.length(); i++)
+        if (!std::isdigit(str[i]) && str[i] != '.')
+            throw DataBaseError("Error: invalid exchange rate at line: " + str);
+    std::istringstream iss(str);
+    float result;
+    iss >> result;
+    if (iss.fail())
+        throw DataBaseError("Error: invalid exchange rate at line: " + str);
+    if (result < -std::numeric_limits<float>::max() || result > std::numeric_limits<float>::max())
+        throw DataBaseError("Error: exceeded limit at line: " + str);
+    return result;
+}
+
+int BitcoinExchange::strToInt(const std::string &str) {
+    for (size_t i = 0; i < str.length(); i++)
+        if (!std::isdigit(str[i]) && str[i] != '.')
+            throw DataBaseError("Error: invalid exchange rate at line: " + str);
+    std::istringstream iss(str);
+    int result;
+    iss >> result;
+    if (iss.fail())
+        throw DataBaseError("Error: invalid exchange rate at line: " + str);
+    if (result < -std::numeric_limits<int>::max() || result > std::numeric_limits<int>::max())
+        throw DataBaseError("Error: exceeded limit at line: " + str);
+    return result;
+}
 
 //parse the date to check if it is valid
 void BitcoinExchange::_parseDate(std::string date) {
@@ -23,15 +51,14 @@ void BitcoinExchange::_parseDate(std::string date) {
     if (dashes != 2 || date[4] != '-' || date[7] != '-')
         throw DataBaseError("Error: invalid date at line: " + date);
     try {
-        std::size_t idx;
-        int year = std::stoi(date.substr(0, 4), &idx);
-        if (idx != 4 || year < 2000 || year > 2024)
+        int year = strToInt(date.substr(0, 4));
+        if (year < 2000 || year > 2024)
             throw DataBaseError("Error: invalid date at line: " + date);
-        int month = std::stoi(date.substr(5, 2), &idx);
-        if (idx != 2 || month < 1 || month > 12)
+        int month = strToInt(date.substr(5, 2));
+        if (month < 1 || month > 12)
             throw DataBaseError("Error: invalid date at line: " + date);
-        int day = std::stoi(date.substr(8, 2), &idx);
-        if (idx != 2 || day < 1 || day > 31)
+        int day = strToInt(date.substr(8, 2));
+        if (day < 1 || day > 31)
             throw DataBaseError("Error: invalid date at line: " + date);
         if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30)
             throw DataBaseError("Error: invalid date at line: " + date);
@@ -61,9 +88,8 @@ void BitcoinExchange::_initDB()
             std::string date = line.substr(0, pos);
             _parseDate(date);
             std::string ratez = line.substr(pos + 1);
-            std::size_t idx;
-            float rate = std::stof(ratez, &idx);
-            if (idx != ratez.length() || rate < 0)
+            float rate = strToFloat(ratez);
+            if (rate < 0)
                 throw DataBaseError("Error: invalid exchange rate at line: " + line);
             _dB[date] = rate;
         } catch (std::invalid_argument &e) {
@@ -90,7 +116,7 @@ void BitcoinExchange::_searchDataBase(std::string date, float value) {
 
 //handle the input file that is passed as an argument
 void BitcoinExchange::_initInput(std::string argv) {
-    std::ifstream file(argv);
+    std::ifstream file(argv.c_str());
     if (!file.is_open() || file.peek() == EOF || !file.good() || file.fail())
         throw DataBaseError("Error Input file: invalid file " + argv);
     std::string line = "";
@@ -99,18 +125,15 @@ void BitcoinExchange::_initInput(std::string argv) {
         throw DataBaseError("Error Input file: invalid file header " + line);
     while (std::getline(file, line, '\n')) {
         size_t pos = line.find('|');
-        if (pos == std::string::npos) {
+        if (pos == std::string::npos || line[pos + 1] != ' ' || line[pos - 1] != ' ') {
             std::cout << YELLOW << "Bad input at line => " << line << RESET << std::endl;   
             continue;
         }
         try {
             std::string date = line.substr(0, (pos - 1));
             _parseDate(date);
-            std::string valuez = line.substr(pos + 1);
-            std::size_t idx;
-            float value = std::stof(valuez, &idx);
-            if (idx != valuez.length())
-                throw DataBaseError("Error Input file: invalid exchange rate at line: " + line);
+            std::string valuez = line.substr(pos + 2);
+            float value = strToFloat(valuez);
             if (value < 0)
                 std::cout << YELLOW << "Error: not a positive number at line => " << line << RESET << std::endl;
             else if (value > 1000)

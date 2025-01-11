@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amireid <amireid@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aeid <aeid@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 02:14:09 by amireid           #+#    #+#             */
-/*   Updated: 2025/01/06 02:57:40 by amireid          ###   ########.fr       */
+/*   Updated: 2025/01/11 19:40:50 by aeid             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,30 +40,30 @@ std::vector<int> PmergeMe::generateJacobsthalSequence(int maxPendCount) {
 }
 
 // This function is getting the number of CPU cores. please note that this is only for unix based systems..NOT WINDOWS!
-int PmergeMe::getNumCPU() {
-    int numCores = 1;
-    #ifdef _SC_NPROCESSORS_ONLN
-        numCores = sysconf(_SC_NPROCESSORS_ONLN);
-    #elif defined(_WIN32)
-        SYSTEM_INFO sysinfo;
-        GetSystemInfo(&sysinfo);
-        numCores = sysinfo.dwNumberOfProcessors;
-    #endif
-    return numCores;
-}
+// int PmergeMe::getNumCPU() {
+//     int numCores = 1;
+//     #ifdef _SC_NPROCESSORS_ONLN
+//         numCores = sysconf(_SC_NPROCESSORS_ONLN);
+//     #elif defined(_WIN32)
+//         SYSTEM_INFO sysinfo;
+//         GetSystemInfo(&sysinfo);
+//         numCores = sysinfo.dwNumberOfProcessors;
+//     #endif
+//     return numCores;
+// }
 
 // This is to optimize the number of threads used based on the data size..
 // for example if the data is small, we use one thread..etc
 size_t PmergeMe::getOptimalThreadCount(size_t dataSize) {
-    int numCores = getNumCPU();
-    size_t maxThreads = numCores * 2;
+    //int numCores = getNumCPU();
+    //size_t maxThreads = numCores * 2;
 
     if (dataSize < 1000) {
         return 1;
     } else if (dataSize < 5000) {
         return 2;
     } else {
-        return std::min(maxThreads, dataSize / 500);
+        return 3;
     }
 }
 
